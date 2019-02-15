@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<header>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" />
+</header>
+<body>
+  <input class="input is-medium" id="link_input" type="text" />
+  <button class="button is-primary" onclick="makemylink()">Convertir</button>
+  <h1>Marketing</h1>
+  <a id="result" href="#" target="_blank"></a>
+
+  <script>
+    function makemylink() {
+      const linkInput = document.getElementById('link_input');
+
+      const result = document.getElementById('result');
+
+      const urlParams = new URLSearchParams(linkInput.value);
+      const lKey = urlParams.get('lKey');
+      let url=`http://www.remax.com.ec/PublicListingFull.aspx?SAgentID=_x0039_XYBMrMODnyTz_x002B_qe2YC1lHzNkzk2cPfXp6joTocl2YDM6HzqMxcOlblFOm_x002F_oFCjmQniO0fnNQr9R0i7yaMdoOTOUboFOHO1vfp6j16T_x002B_d94_x003D_&lKey=${lKey}`;
+
+      if (!lKey) {
+        url = 'Try again';
+      }
+
+      result.innerHTML = url;
+      result.html = url;
+    }
+  </script>
+</body>
+</html>
