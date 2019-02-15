@@ -15,16 +15,16 @@
 
       const result = document.getElementById('result');
 
-      const urlParams = new URLSearchParams(linkInput.value);
-      const lKey = urlParams.get('lKey');
-      let url=`http://www.remax.com.ec/PublicListingFull.aspx?SAgentID=_x0039_XYBMrMODnyTz_x002B_qe2YC1lHzNkzk2cPfXp6joTocl2YDM6HzqMxcOlblFOm_x002F_oFCjmQniO0fnNQr9R0i7yaMdoOTOUboFOHO1vfp6j16T_x002B_d94_x003D_&lKey=${lKey}`;
+      const parsedUrl = new URL(linkInput.value);
+      const listingKey = parsedUrl.searchParams.get('ListingKey');
+      let url=`http://www.remax.com.ec/PublicListingFull.aspx?SAgentID=_x0039_XYBMrMODnyTz_x002B_qe2YC1lHzNkzk2cPfXp6joTocl2YDM6HzqMxcOlblFOm_x002F_oFCjmQniO0fnNQr9R0i7yaMdoOTOUboFOHO1vfp6j16T_x002B_d94_x003D_&lKey=${listingKey}`;
 
-      if (!lKey) {
+      if (!listingKey) {
         url = 'Try again';
       }
 
       result.innerHTML = url;
-      result.html = url;
+      result.href = url;
     }
   </script>
 </body>
