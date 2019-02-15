@@ -2,12 +2,25 @@
 <html>
 <header>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </header>
 <body>
-  <input class="input is-medium" id="link_input" type="text" />
-  <button class="button is-primary" onclick="makemylink()">Convertir</button>
-  <h1>Marketing</h1>
-  <a id="result" href="#" target="_blank"></a>
+  <section class="hero is-info is-fullheight">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <div class="field has-addons">
+          <div class="control">
+            <input class="input is-large" id="link_input" type="text" placeholder="Pegue link de iconnect" />
+          </div>
+          <div class="control">
+            <button class="button is-large is-primary">
+              <img class="image is-24x24" src="clippy.svg" alt="Copy to clipboard">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script>
     function makemylink() {
@@ -23,9 +36,17 @@
         url = 'Try again';
       }
 
-      result.innerHTML = url;
-      result.href = url;
+      return url;
     }
+
+    $(document).ready(function() {
+      new Clipboard('.button', {
+        text: function(trigger) {
+          return makemylink();
+        }
+      });
+    });
   </script>
+  <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
 </body>
 </html>
